@@ -1,16 +1,28 @@
 import requests
 
 url = 'https://api.1inch.io/v5.2/1/quote'
-src_address = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
-dst_address = '0x111111111117dc0aa78b770fa6a738034120c302'
-amount = '10000000000000000'
 
-# Build the parameters as a string and concatenate to the URL
-params_string = f'src={src_address}&dst={dst_address}&amount={amount}'
-full_url = f'{url}?{params_string}'
 
-# Make the GET request with the full URL
-response = requests.get(full_url)
+# Build the parameters as a dictionary
+params = {
+    'src': '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+    'dst': '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599',
+    'amount': '10000000000000000',
+    'protocols': 'All',
+    'fee': 0,
+    'gasPrice': 'fast',
+    'complexityLevel': 1,
+    'parts': 1,
+    'mainRouteParts': 1,
+    'gasLimit': 100000,
+    'includeTokensInfo': True,
+    'includeProtocols': True,
+    'includeGas': True,
+}
+
+
+# Make the GET request with parameters directly
+response = requests.get(url, params=params)
 
 # Print the entire response content, including headers
 print('Response Content:', response.text)
