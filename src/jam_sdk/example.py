@@ -2,13 +2,17 @@ import requests
 
 
 
-url = 'https://api.1inch.dev/swap/v5.2/1/quote'
+url = 'https://api.1inch.dev/swap/v5.2/1/swap'
 
 # Build the parameters as a dictionary
 params = {
     'src': '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
     'dst': '0x111111111117dc0aa78b770fa6a738034120c302',
-    'amount': '10000000000000000'
+    'amount': '10000000000000000',
+    'from':'0xA9560340cA757d537E297c7Cf9416a586D217c07',
+    'slippage':2,
+    'disableEstimate':True,
+    'compatibilityMode':True,
    
 }
 
@@ -19,9 +23,7 @@ params = {
 #     'parts': 1,
 #     'mainRouteParts': 1,
 #     'gasLimit': 100000,
-#     'includeTokensInfo': True,
-#     'includeProtocols': True,
-#     'includeGas': True,
+
 
 # Include your API key in the headers
 headers = {
