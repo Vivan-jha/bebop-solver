@@ -1,28 +1,35 @@
 import requests
 
-url = 'https://api-velvet.1inch.io/v5.2/42161/quote'
 
+
+url = 'https://api.1inch.dev/swap/v5.2/1/quote'
 
 # Build the parameters as a dictionary
 params = {
-    'src': '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
-    'dst': '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599',
-    'amount': '10000000000000000',
-    'protocols': 'All',
-    'fee': 0,
-    'gasPrice': 'fast',
-    'complexityLevel': 1,
-    'parts': 1,
-    'mainRouteParts': 1,
-    'gasLimit': 100000,
-    'includeTokensInfo': True,
-    'includeProtocols': True,
-    'includeGas': True,
+    'src': '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+    'dst': '0x111111111117dc0aa78b770fa6a738034120c302',
+    'amount': '10000000000000000'
+   
 }
 
+#  'protocols': 'All',
+#     'fee': 0,
+#     'gasPrice': ,
+#     'complexityLevel': 1,
+#     'parts': 1,
+#     'mainRouteParts': 1,
+#     'gasLimit': 100000,
+#     'includeTokensInfo': True,
+#     'includeProtocols': True,
+#     'includeGas': True,
 
-# Make the GET request with parameters directly
-response = requests.get(url, params=params)
+# Include your API key in the headers
+headers = {
+    'Authorization' : 'Bearer mjHMxye0xK3h8Zb3zz1iTu4HpKR4Chxy',  # Replace with your actual API key
+}
+
+# Make the GET request with parameters and headers
+response = requests.get(url, params=params, headers=headers)
 
 # Print the entire response content, including headers
 print('Response Content:', response.text)

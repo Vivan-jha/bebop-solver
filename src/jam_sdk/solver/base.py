@@ -15,6 +15,7 @@ from web3.middleware.geth_poa import async_geth_poa_middleware
 from web3.types import TxParams, Wei
 from websockets.client import WebSocketClientProtocol, connect
 
+
 from jam_sdk.constants import (
     JAM_SETTLEMENT_ABI,
     JAM_SETTLEMENT_CONTRACT,
@@ -65,6 +66,7 @@ class BaseSolver:
         )
         self.quote_cache = Cache(Cache.MEMORY)
         self.ws: WebSocketClientProtocol
+ 
 
     async def start(self) -> None:
         """Starts a websocket connection to JAM."""
