@@ -13,7 +13,7 @@ from jam_sdk.solver.types import (
     TokenAmountResponse,
 )
 
-
+8.12
 
 class MySolver(BaseSolver):
     async def get_quote(self, chain_id: int, request: QuoteRequest) -> QuoteResponse | QuoteError:
