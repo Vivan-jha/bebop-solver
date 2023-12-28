@@ -144,6 +144,10 @@ class BaseSolver:
         self.logger.info(response)
         await self._send_response(msg, response)
 
+
+    def __init__(self):
+        self.msg = None
+
     async def _handle_ws_message(self) -> None:
         """
         Handle websocket message from JAM
