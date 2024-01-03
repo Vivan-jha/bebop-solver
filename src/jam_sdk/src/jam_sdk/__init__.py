@@ -64,7 +64,7 @@ class MySolver(BaseSolver):
             quote_id=request.quote_id,
             amounts=[TokenAmountResponse(to_token_address, to_amount)],
             fee=gas_fee,
-            executor="0x21bEFE10698876Fbc96983Aee77651a75583B850s",
+            executor="0x5003F58BE3E0933559E6Ee00EfAb405C0F71E61F",
         )
 
         print(f"Quote response: {quote_response}")
@@ -75,7 +75,7 @@ class MySolver(BaseSolver):
         url = "https://api-test.bebop.xyz/jam/ethereum/v1/order"
         data = {
             "quote_id": quote_id,
-            "signature": "",
+            "signature": "string",
             "sign_scheme": "EIP712"
         }
         response = requests.post(url, json=data, auth=(os.environ.get("USER_ENDPOINT"), os.environ.get("USER_ENDPOINT_AUTHORIZATION")))
@@ -117,7 +117,7 @@ if __name__ == "__main__":
     connection = SolverConnection(
         os.environ.get("SOLVER_NAME"), os.environ.get("SOLVER_AUTHORIZATION"), os.environ.get("SOLVER_ENDPOINT")
     )
-    solver = MySolver(chain_id=1, rpc_url="https://eth.public-rpc.com", connection=connection)
+    solver = MySolver(chain_id=137, rpc_url="https://polygon-rpc.com", connection=connection)
     print("Solver initialized.")
     asyncio.run(solver.start())
 
